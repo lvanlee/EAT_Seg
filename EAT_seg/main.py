@@ -19,23 +19,10 @@ def main(config):
         print('Your input for model_type was %s' % config.model_type)
         return
 
-    if not os.path.exists(config.model_path):
-        os.makedirs(config.model_path)
-    config.model_path = os.path.join(config.model_path, config.model_type)
-    if not os.path.exists(config.SR_result_path):
-        os.makedirs(config.SR_result_path)
-    config.SR_result_path = os.path.join(config.SR_result_path, config.model_type)
-    if not os.path.exists(config.EAT_GT_path):
-        os.makedirs(config.EAT_GT_path)
-    config.EAT_GT_path = os.path.join(config.EAT_GT_path, config.model_type)
-    if not os.path.exists(config.EAT_images_path):
-        os.makedirs(config.EAT_images_path)
-    config.EAT_images_path = os.path.join(config.EAT_images_path, config.model_type)
-
     
     lr = 0.0001
     augmentation_prob = 0.5
-    epoch = random.choice([50])  
+    epoch = random.choice([50,100,150,200])  
     decay_ratio = random.random()
     decay_epoch = int(epoch*decay_ratio)
 
@@ -96,7 +83,7 @@ if __name__ == '__main__':
     parser.add_argument('--val_step', type=int, default=2)
 
     parser.add_argument('--mode', type=str, default='train')
-    parser.add_argument('--model_type', type=str, default='DilaLab6', help='IRDdU_Net/DAttU_Net/DilaLab6/IRDdU_Net/IRDU_Net/IRd5U_Net/IRCdAttU_Net/IRCdU_Net/FCDenseNet103/PSPNet/segnet/U_Net/AttU_Net')
+    parser.add_argument('--model_type', type=str, default='DilaLab6')
     
     parser.add_argument('--train_path', type=str, default='../dataset/train/')
     parser.add_argument('--valid_path', type=str, default='../dataset/valid/')
