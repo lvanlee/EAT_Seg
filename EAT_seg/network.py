@@ -135,7 +135,6 @@ class DB(nn.Module):
 
 
 
-##########################DilaLab#############################################################
 
 class DilaLab6(nn.Module):
     def __init__(self, ch_in=1, ch_out=1):
@@ -224,7 +223,7 @@ class DilaLab6(nn.Module):
         return d0
         
 
-###################################U_Net################################
+
 class U_Net(nn.Module):
     def __init__(self, img_ch=1, output_ch=1):
         super(U_Net, self).__init__()
@@ -289,7 +288,7 @@ class U_Net(nn.Module):
         return d1
 
 
-########################U_Net++####################################
+    
 class conv_block_nested(nn.Module):
 
     def __init__(self, in_ch, mid_ch, out_ch):
@@ -377,7 +376,6 @@ class NestedUNet(nn.Module):
 
 
 
-###########################AttU_Net#################################################
 
 class AttU_Net(nn.Module):
     def __init__(self, img_ch=3, output_ch=1):
@@ -450,7 +448,7 @@ class AttU_Net(nn.Module):
         return d1
 
 
-########################segnet###############################################
+
 
 class Encoder(nn.Module):
     def __init__(self, input_channels):
@@ -598,7 +596,7 @@ class segnet(nn.Module):
         return x
 
 
-########################################################## resnet34
+
 class ResNet(nn.Module):
     def __init__(self, in_class, block, layers=(3, 4, 23, 3)):
         self.inplanes = 64
